@@ -10,6 +10,9 @@ export default new VueRouter({
             component: Homepage,
             name: 'homePage',
             path: '/'
+        },
+        {
+
         }
     ]
 })
