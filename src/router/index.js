@@ -11,8 +11,6 @@ export default new VueRouter({
             name: 'homePage',
             path: '/'
         },
-        {
 
-        }
     ]
 })
