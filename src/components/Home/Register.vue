@@ -45,7 +45,7 @@ export default {
     onSubmit(e) {
       e.preventDefault();
       if(this.password === this.passwordConfirm){
-        axios.post(`${ip}/login`, {
+        axios.post(`${ip}/user`, {
           email: this.email,
           password: this.password
         }).then(r => {

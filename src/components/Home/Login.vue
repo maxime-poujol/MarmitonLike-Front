@@ -6,8 +6,8 @@
 
     <Form @submit="onSubmit">
       <FieldContainer>
-        <Field v-model="email" type="email" name="email" id="email" placeholder="email"/>
-        <Field v-model="password" type="password" name="password" id="password" placeholder="password"/>
+        <Field v-model="email" type="email" name="email" id="email" placeholder="Email"/>
+        <Field v-model="password" type="password" name="password" id="password" placeholder="Mot de passe"/>
       </FieldContainer>
       <Submit type="submit" value="Se connecter"/>
     </Form>
