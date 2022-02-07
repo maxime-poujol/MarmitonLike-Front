@@ -6,6 +6,7 @@
 
     <Form @submit="onSubmit">
       <FieldContainer>
+        <Field v-model="username" type="text" name="username" id="username" placeholder="Nom utilisateur"/>
         <Field v-model="email" type="email" name="email" id="email" placeholder="Email"/>
         <Field v-model="password" type="password" name="password" id="password" placeholder="Mot de passe"/>
         <Field v-model="passwordConfirm" type="password" name="password" id="passwordConfirm" placeholder="Confirmer mot de passe"/>
@@ -35,6 +36,7 @@ export default {
   },
   data() {
     return {
+      username:"",
       email: "",
       password: "",
       passwordConfirm: "",
@@ -46,6 +48,7 @@ export default {
       e.preventDefault();
       if(this.password === this.passwordConfirm){
         axios.post(`${ip}/user`, {
+          username: this.username,
           email: this.email,
           password: this.password
         }).then(r => {
