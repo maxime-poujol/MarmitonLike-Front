@@ -1,10 +1,12 @@
 <template>
-  <div></div>
+  <div>
+    <p>{{  }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Register"
+  name: "Recipe"
 }
 </script>
 

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Homepage from "@/components/Homepage";
+import Homepage from "@/pages/Homepage";
+import Recepies from "@/pages/Recepies";
 
 Vue.use(VueRouter)
 
@@ -11,6 +12,11 @@ export default new VueRouter({
             name: 'homePage',
             path: '/'
         },
+        {
+            component: Recepies,
+            name: 'recepies',
+            path: '/recepies'
+        }
 
     ]
 })
