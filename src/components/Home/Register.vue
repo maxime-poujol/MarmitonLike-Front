@@ -1,46 +1,43 @@
 <template>
-  <div>
-    <form>
-      <!-- Ici je relie mes input aux données de mon composant avec un v-model -->
-      <div>
-        <input id="userMail" v-model="username" type="email" name="email" required>
-        <label for="userMail">E-mail</label>
-      </div>
-      <div>
-        <input id="username" v-model="username" type="text" name="username">
-        <label for="username"></label>
+  <RegisterContainer>
+    <TitleContainer>
+      <Title>Créer un compte</Title>
+    </TitleContainer>
 
-        <input id="lastname" v-model="lastname" class="form-control" placeholder="Nom" required type="text"/>
-        <label for="lastname">Nom</label>
-      </div>
-      <div class="form-floating my-2">
-        <input id="subject" v-model="subject" class="form-control" placeholder="Sujet de la demande" required
-               type="text"/>
-        <label for="subject">Sujet de la demande </label>
-      </div>
-      <div class="form-floating my-2">
-        <textarea id="message" v-model="content" class="form-control" placeholder="Message" required></textarea>
-        <label for="message">Message</label>
-      </div>
-      <div class="text-center">
-        <button class="btn btn-primary" type="submit" @click="submitForm">Soumettre</button>
-      </div>
-    </form>
+    <Form @submit="onSubmit">
+      <FieldContainer>
+        <Field v-model="email" type="email" name="email" id="email" placeholder="email"/>
+        <Field v-model="password" type="password" name="password" id="password" placeholder="password"/>
+        <Field v-model="passwordConfirm" type="password" name="password" id="passwordConfirm" placeholder="password"/>
+      </FieldContainer>
+      <Submit type="submit" value="Se connecter"/>
+    </Form>
+    <p>{{error}}</p>
+  </RegisterContainer>
 
-
-
-
-
-    <input id="password" type="password" name="password">
-    <label for="password"></label>
-
-
-
-  </div>
 </template>
 
 <script>
+import {RegisterContainer, Form, FieldContainer, Field, Submit, Title, TitleContainer} from "@/styles/Home/Form.style";
+
 export default {
-  name: "Register"
+  name: "Register",
+  components: {
+    RegisterContainer,
+    Form,
+    Field,
+    Submit,
+    Title,
+    TitleContainer,
+    FieldContainer
+  },
+  data() {
+    return {
+      email: "",
+      password: "",
+      passwordConfirm: "",
+      error: ""
+    }
+  },
 }
 </script>

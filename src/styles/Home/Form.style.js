@@ -5,6 +5,10 @@ export const LoginContainer = styled.article`
   padding: 17%;
   width: 30%;
 `;
+export const RegisterContainer = styled.article`
+  padding: 17%;
+  width: 30%;
+`;
 export const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
