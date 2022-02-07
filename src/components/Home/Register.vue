@@ -58,7 +58,6 @@ export default {
           this.error = "Mauvais profil/mdp";
         })
       }
-
     }
   }
 }
