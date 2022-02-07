@@ -10,7 +10,7 @@
         <Field v-model="password" type="password" name="password" id="password" placeholder="password"/>
         <Field v-model="passwordConfirm" type="password" name="password" id="passwordConfirm" placeholder="password"/>
       </FieldContainer>
-      <Submit type="submit" value="Se connecter"/>
+      <Submit type="submit" value="Créer mon compte"/>
     </Form>
     <p>{{error}}</p>
   </RegisterContainer>
