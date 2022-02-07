@@ -6,9 +6,9 @@
 
     <Form @submit="onSubmit">
       <FieldContainer>
-        <Field v-model="email" type="email" name="email" id="email" placeholder="email"/>
-        <Field v-model="password" type="password" name="password" id="password" placeholder="mot de passe"/>
-        <Field v-model="passwordConfirm" type="password" name="password" id="passwordConfirm" placeholder="confirmer mot de passe"/>
+        <Field v-model="email" type="email" name="email" id="email" placeholder="Email"/>
+        <Field v-model="password" type="password" name="password" id="password" placeholder="Mot de passe"/>
+        <Field v-model="passwordConfirm" type="password" name="password" id="passwordConfirm" placeholder="Confirmer mot de passe"/>
       </FieldContainer>
       <Submit type="submit" value="Créer mon compte"/>
     </Form>
