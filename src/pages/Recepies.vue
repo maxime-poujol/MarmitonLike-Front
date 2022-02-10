@@ -3,8 +3,9 @@
       <router-link v-for="(recipe,key) in recepies" :key=key v-bind:to="'/recipe/' + recipe.id">
         <article>
           <img src="" alt="">
+          <p>{{recipe.name}}</p>
         </article>
-        {{recipe.name}}
+
       </router-link>
   </section>
 

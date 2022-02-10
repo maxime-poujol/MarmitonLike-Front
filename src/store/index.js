@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from "axios";
+import router from "@/router";
 
 Vue.use(Vuex)
 
@@ -44,14 +45,11 @@ export default new Vuex.Store({
         console.log(err)
       })
     },
-    login(context){
-      axios.post(`${process.env.VUE_APP_IP}/login`, {
-        email: this.email,
-        password: this.password
-      }).then(r => {
+    login(context, body){
+      axios.post(`${process.env.VUE_APP_IP}/login`, body).then(r => {
         context.commit("SET_TOKEN", r.data)
         sessionStorage.token = r.data;
-        this.$router.push("recepies");
+        router.push("recepies");
       }).catch(() => {
         this.error = "Mauvais profil/mdp";
       })

@@ -17,7 +17,6 @@
 
 <script>
 import {LoginContainer, Form, FieldContainer, Field, Submit, Title, TitleContainer} from "@/styles/Home/Form.style";
-import axios from 'axios';
 
 export default {
   name: "Login",
@@ -45,7 +44,10 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-        this.$store.dispatch('login')
+        this.$store.dispatch('login', {
+          email: this.email,
+          password: this.password,
+        })
     }
   }
 }
