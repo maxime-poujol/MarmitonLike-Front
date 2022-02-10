@@ -16,6 +16,11 @@ export default new VueRouter({
             component: Recepies,
             name: 'recepies',
             path: '/recepies'
+        },
+        {
+            component: Recepies,
+            name: 'recipe',
+            path: '/recepies'
         }
 
     ]

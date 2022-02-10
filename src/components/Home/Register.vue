@@ -7,8 +7,8 @@
     <Form @submit="onSubmit">
       <FieldContainer>
         <Field v-model="username" type="text" name="username" id="username" placeholder="Nom utilisateur"/>
-        <Field v-model="email" type="email" name="email" id="email" placeholder="Email"/>
-        <Field v-model="password" type="password" name="password" id="password" placeholder="Mot de passe"/>
+        <Field v-model="email" type="email" name="email" id="email_register" placeholder="Email"/>
+        <Field v-model="password" type="password" name="password" id="password_register" placeholder="Mot de passe"/>
         <Field v-model="passwordConfirm" type="password" name="password" id="passwordConfirm" placeholder="Confirmer mot de passe"/>
       </FieldContainer>
       <Submit type="submit" value="Créer mon compte"/>
@@ -53,7 +53,13 @@ export default {
           password: this.password
         }).then(r => {
           sessionStorage.token = r.data;
-          this.$router.push("recepies");
+          axios.post(`${ip}/login`, {
+            email: this.email,
+            password: this.password
+          }).then((res) => {
+            sessionStorage.token = res.data;
+            this.$router.push("recepies");
+          })
         }).catch(() => {
           this.error = "Mauvais profil/mdp";
         })
