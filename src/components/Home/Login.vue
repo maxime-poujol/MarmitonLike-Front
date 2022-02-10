@@ -18,7 +18,6 @@
 <script>
 import {LoginContainer, Form, FieldContainer, Field, Submit, Title, TitleContainer} from "@/styles/Home/Form.style";
 import axios from 'axios';
-import ip from "@/config/adress";
 
 export default {
   name: "Login",
@@ -46,7 +45,7 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      axios.post(`${ip}/login`, {
+      axios.post(`${process.env.VUE_APP_IP}/login`, {
         email: this.email,
         password: this.password
       }).then(r => {

@@ -47,13 +47,13 @@ export default {
     onSubmit(e) {
       e.preventDefault();
       if(this.password === this.passwordConfirm){
-        axios.post(`${ip}/user`, {
+        axios.post(`${process.env.VUE_APP_IP}/user`, {
           username: this.username,
           email: this.email,
           password: this.password
         }).then(r => {
           sessionStorage.token = r.data;
-          axios.post(`${ip}/login`, {
+          axios.post(`${process.env.VUE_APP_IP}/login`, {
             email: this.email,
             password: this.password
           }).then((res) => {

@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <div v-for="(recipe,key) in recepies" :key=key>
-      <router-link v-bind:to="'/recipe/' + recipe.id">{{recipe.name}}</router-link>
-    </div>
-  </div>
+  <section>
+      <router-link v-for="(recipe,key) in recepies" :key=key v-bind:to="'/recipe/' + recipe.id">
+        <article>
+          <img src="" alt="">
+        </article>
+        {{recipe.name}}
+      </router-link>
+  </section>
 
 </template>
 

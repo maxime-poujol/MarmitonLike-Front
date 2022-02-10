@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from "axios";
-import ip from "@/config/adress";
 
 Vue.use(Vuex)
 
@@ -11,34 +10,36 @@ export default new Vuex.Store({
     recipe: {}
   },
   mutations: {
-    GET_RECEPIES (state) {
-      axios.get(`${ip}/recipes`,{
-        headers: {
-          Authorization:`Bearer ${sessionStorage.token}`
-        }
-      }).then(r => {
-        state.recepies = r.data;
-      })
+    GET_RECEPIES (state, recepies) {
+      state.recepies = recepies;
     },
-    GET_RECIPE(state, id){
-      axios.get(`${ip}/recipes/${id}`, {
-        headers: {
-          Authorization:`Bearer ${sessionStorage.token}`
-        }
-      }).then(r => {
-        state.recipe = r.data
-
-      }).catch(err => {
-        console.log(err)
-      })
+    GET_RECIPE(state, recipe){
+      state.recipe = recipe;
     }
   },
   actions: {
     getRecepies(context) {
-      context.commit("GET_RECEPIES")
+      axios.get(`${process.env.VUE_APP_IP}/recipes`,{
+        headers: {
+          Authorization:`Bearer ${sessionStorage.token}`
+        }
+      }).then(r => {
+        context.commit("GET_RECEPIES",r.data)
+      })
+
     },
     getRecipe(context, id){
-      context.commit("GET_RECIPE", id)
+      axios.get(`${process.env.VUE_APP_IP}/recipes/${id}`, {
+        headers: {
+          Authorization:`Bearer ${sessionStorage.token}`
+        }
+      }).then(r => {
+        context.commit("GET_RECIPE", r.data);
+
+      }).catch(err => {
+        console.log(err)
+      })
+
     }
   },
   modules: {
