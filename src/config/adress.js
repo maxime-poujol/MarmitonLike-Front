@@ -1,2 +1,2 @@
-const ip = "http://localhost:4000";
+const ip = "https://marmiton-like-back.herokuapp.com";
 export default ip;

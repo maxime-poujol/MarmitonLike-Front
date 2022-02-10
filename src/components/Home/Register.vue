@@ -60,8 +60,9 @@ export default {
             sessionStorage.token = res.data;
             this.$router.push("recepies");
           })
-        }).catch(() => {
-          this.error = "Mauvais profil/mdp";
+        }).catch((err) => {
+          this.error = err;
+          //this.error = "Mauvais profil/mdp";
         })
       }
     }
