@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header v-if="$route.fullPath !== '/'" />
     <Main/>
-    <Footer/>
+    <Footer v-if="$route.fullPath !== '/'"/>
   </div>
 </template>
 

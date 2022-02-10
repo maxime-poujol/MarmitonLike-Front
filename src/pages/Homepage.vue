@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import Login from "@/components/Home/Login";
 import Register from "@/components/Home/Register";
 import {Section, Barre} from "@/styles/Home/Home.style";

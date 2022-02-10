@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    recepies: []
+    recepies: [],
+    recipe: {}
   },
   mutations: {
     GET_RECEPIES (state) {
@@ -18,11 +19,26 @@ export default new Vuex.Store({
       }).then(r => {
         state.recepies = r.data;
       })
+    },
+    GET_RECIPE(state, id){
+      axios.get(`${ip}/recipes/${id}`, {
+        headers: {
+          Authorization:`Bearer ${sessionStorage.token}`
+        }
+      }).then(r => {
+        state.recipe = r.data
+
+      }).catch(err => {
+        console.log(err)
+      })
     }
   },
   actions: {
     getRecepies(context) {
       context.commit("GET_RECEPIES")
+    },
+    getRecipe(context, id){
+      context.commit("GET_RECIPE", id)
     }
   },
   modules: {

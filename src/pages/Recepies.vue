@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(recipe,key) in recepies" :key=key>
-      <a href="">{{recipe.name}}</a>
+      <router-link v-bind:to="'/recipe/' + recipe.id">{{recipe.name}}</router-link>
     </div>
   </div>
 
