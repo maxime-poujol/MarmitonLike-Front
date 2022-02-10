@@ -21,7 +21,6 @@
 <script>
 import {RegisterContainer, Form, FieldContainer, Field, Submit, Title, TitleContainer} from "@/styles/Home/Form.style";
 import axios from "axios";
-import ip from "@/config/adress";
 
 export default {
   name: "Register",
