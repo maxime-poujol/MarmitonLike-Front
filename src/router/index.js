@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Homepage from "@/pages/Homepage";
 import Recepies from "@/pages/Recepies";
+import Recipe from "@/pages/Recipe";
 
 Vue.use(VueRouter)
 
@@ -18,9 +19,9 @@ export default new VueRouter({
             path: '/recepies'
         },
         {
-            component: Recepies,
+            component: Recipe,
             name: 'recipe',
-            path: '/recepies'
+            path: '/recipe/:id',
         }
 
     ]
