@@ -20,6 +20,11 @@ export default {
     }
 
     this.$store.dispatch("getRecipe", this.$route.params.id);
+  },
+  watch:{
+    $route() {
+      this.$store.dispatch("getRecipe", this.$route.params.id);
+    }
   }
 }
 </script>
