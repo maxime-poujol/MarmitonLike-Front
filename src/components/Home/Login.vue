@@ -45,15 +45,7 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      axios.post(`${process.env.VUE_APP_IP}/login`, {
-        email: this.email,
-        password: this.password
-      }).then(r => {
-        sessionStorage.token = r.data;
-        this.$router.push("recepies");
-      }).catch(() => {
-        this.error = "Mauvais profil/mdp";
-      })
+        this.$store.dispatch('login')
     }
   }
 }

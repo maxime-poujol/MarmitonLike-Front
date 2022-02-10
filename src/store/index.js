@@ -7,7 +7,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     recepies: [],
-    recipe: {}
+    recipe: {},
+    _token: ""
   },
   mutations: {
     GET_RECEPIES (state, recepies) {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     },
     GET_RECIPE(state, recipe){
       state.recipe = recipe;
+    },
+    SET_TOKEN(state, token){
+      state._token = token;
     }
   },
   actions: {
@@ -39,7 +43,21 @@ export default new Vuex.Store({
       }).catch(err => {
         console.log(err)
       })
-
+    },
+    login(context){
+      axios.post(`${process.env.VUE_APP_IP}/login`, {
+        email: this.email,
+        password: this.password
+      }).then(r => {
+        context.commit("SET_TOKEN", r.data)
+        sessionStorage.token = r.data;
+        this.$router.push("recepies");
+      }).catch(() => {
+        this.error = "Mauvais profil/mdp";
+      })
+    },
+    setToken(context, token){
+      context.commit("SET_TOKEN", token)
     }
   },
   modules: {
