@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Homepage from "@/pages/Homepage";
-import Recepies from "@/pages/Recepies";
-import Recipe from "@/pages/Recipe";
+import Recepies from "@/pages/recipe/Recepies";
+import Recipe from "@/pages/recipe/Recipe";
 
 Vue.use(VueRouter)
 
