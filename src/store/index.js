@@ -39,7 +39,7 @@ export default new Vuex.Store({
           Authorization:`Bearer ${sessionStorage.token}`
         }
       }).then(r => {
-        context.commit("GET_RECIPE", r.data);
+        context.commit("GET_RECIPE", r.data[0]);
 
       }).catch(err => {
         console.log(err)

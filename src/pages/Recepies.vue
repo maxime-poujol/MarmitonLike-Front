@@ -1,22 +1,31 @@
 <template>
-  <section>
-      <router-link v-for="(recipe,key) in recepies" :key=key v-bind:to="'/recipe/' + recipe.id">
-        <article>
-          <img src="" alt="">
-          <p>{{recipe.name}}</p>
-        </article>
+  <RecepiesListContainer>
+      <router-link v-for="(recipe,key) in recepies" :key=key :to="'/recipe/' + recipe.id">
+        <RecipeContainer>
+          <TitleContainer>
+            <RecipeName>{{recipe.name}}</RecipeName>
+          </TitleContainer>
+
+        </RecipeContainer>
 
       </router-link>
-  </section>
+  </RecepiesListContainer>
 
 </template>
 
 <script>
 
 import {mapState} from 'vuex'
+import {RecepiesListContainer, RecipeContainer, RecipeName, TitleContainer} from "@/styles/Recepies/Recepies.style";
 
 export default {
   name: "Recepies",
+  components: {
+    RecipeContainer,
+    RecepiesListContainer,
+    TitleContainer,
+    RecipeName
+  },
   computed: {
     ...mapState(['recepies'])
   },
