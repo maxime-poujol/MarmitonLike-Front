@@ -7,29 +7,33 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    recepies: [],
+    recipes: [],
+    userRecipes: [],
     recipe: {},
     _token: ""
   },
   mutations: {
-    GET_RECEPIES (state, recepies) {
-      state.recepies = recepies;
+    GET_RECIPES (state, recipes) {
+      state.recipes = recipes;
     },
     GET_RECIPE(state, recipe){
       state.recipe = recipe;
     },
     SET_TOKEN(state, token){
       state._token = token;
+    },
+    GET_USER_RECIPES(state,recipes) {
+      state.userRecipes = recipes;
     }
   },
   actions: {
-    getRecepies(context) {
+    getRecipes(context) {
       axios.get(`${process.env.VUE_APP_IP}/recipes`,{
         headers: {
           Authorization:`Bearer ${sessionStorage.token}`
         }
       }).then(r => {
-        context.commit("GET_RECEPIES",r.data)
+        context.commit("GET_RECIPES",r.data);
       })
 
     },
@@ -42,20 +46,30 @@ export default new Vuex.Store({
         context.commit("GET_RECIPE", r.data[0]);
 
       }).catch(err => {
-        console.log(err)
+        console.log(err);
       })
     },
     login(context, body){
       axios.post(`${process.env.VUE_APP_IP}/login`, body).then(r => {
         context.commit("SET_TOKEN", r.data)
         sessionStorage.token = r.data;
-        router.push("recepies");
+        router.push("recipes");
       }).catch(() => {
         this.error = "Mauvais profil/mdp";
       })
     },
     setToken(context, token){
       context.commit("SET_TOKEN", token)
+    },
+
+    getUserRecipes(context) {
+      axios.get(`${process.env.VUE_APP_IP}/myrecipes`, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.token}`
+        }
+      }).then(r => {
+        context.commit("GET_USER_RECIPES",r.data);
+      })
     }
   },
   modules: {

@@ -1,7 +1,7 @@
 import styled from 'vue-styled-components';
 import color from "@/styles/theme";
 
-export const RecepiesListContainer = styled.section`
+export const RecipesListContainer = styled.section`
   padding-top: 60px;
   display: grid;
   grid-template-columns: repeat(3, fit-content(100%));

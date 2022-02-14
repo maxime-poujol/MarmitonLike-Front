@@ -50,7 +50,7 @@ import {
   TimesSection,
   RecipeTitle,
   Ingredient, StepSection
-} from "@/styles/Recepies/Recipe.style";
+} from "@/styles/recipes/Recipe.style";
 
 export default {
   name: "Recipe",

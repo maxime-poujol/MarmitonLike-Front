@@ -38,7 +38,7 @@ export default {
   },
   created() {
     if (sessionStorage.token) {
-      this.$router.push("recepies")
+      this.$router.push("Recipes")
     }
   },
   methods: {

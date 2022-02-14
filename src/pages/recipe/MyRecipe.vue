@@ -1,9 +1,20 @@
 <template>
-  <div></div>
+  <div>
+    {{userRecipes}}
+  </div>
+
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
-  name: "MyRecipe"
+  name: "MyRecipe",
+  computed: {
+    ...mapState(['userRecipes'])
+  },
+  created() {
+    this.$store.dispatch("getUserRecipes");
+  }
 }
 </script>

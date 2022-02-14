@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Homepage from "@/pages/Homepage";
-import Recepies from "@/pages/recipe/Recepies";
+import Recipes from "@/pages/recipe/Recipes";
 import Recipe from "@/pages/recipe/Recipe";
 import MyRecipe from "@/pages/recipe/MyRecipe";
 import CreateRecipe from "@/pages/recipe/CreateRecipe";
@@ -17,13 +17,13 @@ export default new VueRouter({
             path: '/'
         },
         {
-            component: Recepies,
-            name: 'recepies',
-            path: '/recepies'
+            component: Recipes,
+            name: 'Recipes',
+            path: '/recipes'
         },
         {
             component: Recipe,
-            name: 'recipe',
+            name: 'Recipe',
             path: '/recipe/:id',
         },
         {

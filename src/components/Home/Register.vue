@@ -57,7 +57,7 @@ export default {
             password: this.password
           }).then((res) => {
             sessionStorage.token = res.data;
-            this.$router.push("recepies");
+            this.$router.push("Recipes");
           })
         }).catch((err) => {
           this.error = err;

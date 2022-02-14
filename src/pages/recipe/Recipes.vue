@@ -1,6 +1,6 @@
 <template>
-  <RecepiesListContainer>
-      <router-link v-for="(recipe,key) in recepies" :key=key :to="'/recipe/' + recipe.id">
+  <RecipesListContainer>
+      <router-link v-for="(recipe,key) in recipes" :key=key :to="'/recipe/' + recipe.id">
         <RecipeContainer>
           <TitleContainer>
             <RecipeName>{{recipe.name}}</RecipeName>
@@ -9,25 +9,25 @@
         </RecipeContainer>
 
       </router-link>
-  </RecepiesListContainer>
+  </RecipesListContainer>
 
 </template>
 
 <script>
 
 import {mapState} from 'vuex'
-import {RecepiesListContainer, RecipeContainer, RecipeName, TitleContainer} from "@/styles/Recepies/Recepies.style";
+import {RecipesListContainer, RecipeContainer, RecipeName, TitleContainer} from "@/styles/recipes/Recipes.style";
 
 export default {
-  name: "Recepies",
+  name: "Recipes",
   components: {
     RecipeContainer,
-    RecepiesListContainer,
+    RecipesListContainer,
     TitleContainer,
     RecipeName
   },
   computed: {
-    ...mapState(['recepies'])
+    ...mapState(['recipes'])
   },
   created() {
     const token = sessionStorage.token;
@@ -36,7 +36,7 @@ export default {
       return;
     }
 
-    this.$store.dispatch("getRecepies");
+    this.$store.dispatch("getRecipes");
   }
 }
 </script>
