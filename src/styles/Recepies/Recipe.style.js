@@ -31,7 +31,7 @@ export const SectionTitle = styled.div`
   padding: 20px;
 
   text-align: center;
-  box-shadow: 5px 5px 15px;
+  border: 1px solid ${color.black};
   border-radius: 15px;
 
   > h2 {

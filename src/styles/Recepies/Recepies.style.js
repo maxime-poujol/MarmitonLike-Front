@@ -2,7 +2,7 @@ import styled from 'vue-styled-components';
 import color from "@/styles/theme";
 
 export const RecepiesListContainer = styled.section`
-  margin-top: 60px;
+  padding-top: 60px;
   display: grid;
   grid-template-columns: repeat(3, fit-content(100%));
   justify-content: center;

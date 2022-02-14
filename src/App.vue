@@ -23,10 +23,6 @@ export default {
 </script>
 
 <style>
-  html {
-    min-height: 100vh;
-    background: linear-gradient(90deg, rgba(0,0,255,1) 33%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 66%, rgba(255,0,0,1) 66%);
-  }
 
   a {
     text-decoration: none;
@@ -42,6 +38,10 @@ export default {
     margin: 0;
     padding: 0;
     font-family: genshin,serif;
+  }
+
+  main {
+    min-height: calc(100vh - 120px);
   }
 </style>
 
