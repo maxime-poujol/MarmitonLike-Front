@@ -39,7 +39,7 @@ export default new VueRouter({
         {
             component: UpdateRecipe,
             name: 'myRecipe-update',
-            path: '/myrecipe/update',
+            path: '/myrecipe/update/:id',
         },
         {
             component: UpdateRecipe,

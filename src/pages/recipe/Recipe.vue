@@ -11,7 +11,7 @@
     <IngredientSection>
       <Ingredient v-for="(ingredient,key) in recipe.ingredients" :key="'ing-' + key">
         <p>{{ upperFirst(ingredient.name) }}</p>
-        <p>80g</p>
+        <p>{{ ingredient.quantite }}</p>
       </Ingredient>
     </IngredientSection>
 
@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import {mapState} from "vuex";
 import {upperFirst, parseTime} from "@/lib/formatter";
 import {
   RecipeImage,
@@ -54,6 +53,11 @@ import {
 
 export default {
   name: "Recipe",
+  computed: {
+    recipe() {
+      return this.$store.getters.getRecipe(this.$route.params.id)
+    }
+  },
   components: {
     Section,
     RecipeImage,
@@ -64,9 +68,6 @@ export default {
     Ingredient,
     StepSection
   },
-  computed: {
-    ...mapState(['recipe'])
-  },
   methods: {
     upperFirst,
     parseTime
@@ -75,14 +76,6 @@ export default {
     const token = sessionStorage.token;
     if (!token) {
       this.$router.push('/');
-      return;
-    }
-
-    this.$store.dispatch("getRecipe", this.$route.params.id);
-  },
-  watch: {
-    $route() {
-      this.$store.dispatch("getRecipe", this.$route.params.id);
     }
   }
 }
