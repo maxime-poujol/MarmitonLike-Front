@@ -7,7 +7,3 @@ export default {
   name: "DeleteRecipe"
 }
 </script>
-
-<style scoped>
-
-</style>

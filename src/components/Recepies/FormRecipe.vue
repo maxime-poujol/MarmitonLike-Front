@@ -9,7 +9,3 @@ export default {
   name: "FormRecipe"
 }
 </script>
-
-<style scoped>
-
-</style>
