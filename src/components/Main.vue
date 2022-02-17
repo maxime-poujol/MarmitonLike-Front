@@ -8,7 +8,7 @@
 export default {
   name: "Main",
   created() {
-    if(sessionStorage.token){
+    if (sessionStorage.token) {
       this.$store.dispatch('setToken', sessionStorage.token)
     }
   }

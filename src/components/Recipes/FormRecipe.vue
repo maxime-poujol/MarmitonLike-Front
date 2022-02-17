@@ -10,7 +10,12 @@
 </template>
 
 <script>
+import {Form} from "@/styles/Home/Form.style";
+
 export default {
-  name: "FormRecipe"
+  name: "FormRecipe",
+  components: {
+    Form
+  }
 }
 </script>

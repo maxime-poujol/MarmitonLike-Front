@@ -1,7 +1,7 @@
 <template>
   <Section>
     <Login/>      <!-- Formulaire de connexion -->
-    <Barre />   <!-- barre verticale -->
+    <Barre/>      <!-- barre verticale -->
     <Register/>   <!-- Formulaire de création de compte -->
   </Section>
 </template>
@@ -14,6 +14,6 @@ import {Section, Barre} from "@/styles/Home/Home.style";
 
 export default {
   name: "Homepage",
-  components: {Register, Login, Section,Barre}
+  components: {Register, Login, Section, Barre}
 }
 </script>

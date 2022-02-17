@@ -11,7 +11,7 @@
       </FieldContainer>
       <Submit type="submit" value="Se connecter"/>
     </Form>
-    <p>{{error}}</p>
+    <p>{{ error }}</p>
   </LoginContainer>
 </template>
 
@@ -44,10 +44,10 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-        this.$store.dispatch('login', {
-          email: this.email,
-          password: this.password,
-        })
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password,
+      })
     }
   }
 }

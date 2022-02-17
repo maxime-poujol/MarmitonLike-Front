@@ -44,7 +44,7 @@ export default new VueRouter({
         {
             component: UpdateRecipe,
             name: 'myRecipe-delete',
-            path: '/myrecipe/delete',
+            path: '/myrecipe/delete/:id',
         },
 
     ]

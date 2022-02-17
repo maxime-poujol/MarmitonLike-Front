@@ -1,14 +1,14 @@
 <template>
   <RecipesListContainer>
-      <router-link v-for="(recipe,key) in recipes" :key=key :to="'/recipe/' + recipe.id">
-        <RecipeContainer>
-          <TitleContainer>
-            <RecipeName>{{recipe.name}}</RecipeName>
-          </TitleContainer>
+    <router-link v-for="(recipe,key) in recipes" :key=key :to="'/recipe/' + recipe.id">
+      <RecipeContainer>
+        <TitleContainer>
+          <RecipeName>{{ recipe.name }}</RecipeName>
+        </TitleContainer>
 
-        </RecipeContainer>
+      </RecipeContainer>
 
-      </router-link>
+    </router-link>
   </RecipesListContainer>
 
 </template>
