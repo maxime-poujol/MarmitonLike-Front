@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import {Form} from "@/styles/Home/Form.style";
+import {Field, FieldContainer, Form} from "@/styles/Home/Form.style";
+import {FormContainer} from '@/styles/recipes/FormRecipe.style'
 
 export default {
   name: "FormRecipe",
@@ -30,7 +31,10 @@ export default {
     }
   },
   components: {
-    Form
+    Form,
+    FieldContainer,
+    Field,
+    FormContainer
   }
 }
 </script>
