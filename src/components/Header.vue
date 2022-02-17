@@ -1,8 +1,8 @@
 <template>
   <header>
     <Nav>
-      <router-link to="/">Accueil</router-link>
-      <router-link to="/myrecipe">Mes recettes</router-link>
+      <router-link :to="{name: 'homePage'}">Accueil</router-link>
+      <router-link :to="{name: 'myRecipe'}">Mes recettes</router-link>
     </Nav>
   </header>
 </template>

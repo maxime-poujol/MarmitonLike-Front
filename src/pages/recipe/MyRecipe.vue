@@ -52,6 +52,14 @@ export default {
   },
   created() {
     this.$store.dispatch("getUserRecipes");
+  },
+  methods: {
+    onDelete(recipe) {
+      if (confirm('Etes-vous sur de vouloir supprimer cette recette ?')) {
+        this.$router.push({name: "myRecipe-delete", params: {id: recipe.id}});
+      }
+
+    }
   }
 }
 </script>

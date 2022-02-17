@@ -6,6 +6,7 @@ import Recipe from "@/pages/recipe/Recipe";
 import MyRecipe from "@/pages/recipe/MyRecipe";
 import CreateRecipe from "@/pages/recipe/CreateRecipe";
 import UpdateRecipe from "@/pages/recipe/UpdateRecipe";
+import DeleteRecipe from "@/pages/recipe/DeleteRecipe";
 
 Vue.use(VueRouter)
 
@@ -42,7 +43,7 @@ export default new VueRouter({
             path: '/myrecipe/update/:id',
         },
         {
-            component: UpdateRecipe,
+            component: DeleteRecipe,
             name: 'myRecipe-delete',
             path: '/myrecipe/delete/:id',
         },
