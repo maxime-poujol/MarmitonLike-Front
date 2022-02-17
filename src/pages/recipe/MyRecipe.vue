@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <router-link :to="{name: 'myRecipe-create'}"> Create a recipe </router-link>
+      <router-link :to="{name: 'myRecipe-create'}"> Create a recipe</router-link>
     </section>
     <section>
       <table>
@@ -20,13 +20,13 @@
         </thead>
         <tbody>
         <tr v-for="(recipe,key) in userRecipes" :key="key">
-          <td>{{recipe.id}}</td>
-          <td>{{recipe.name}}</td>
-          <td>{{recipe.preparationTime}}</td>
-          <td>{{recipe.cookingTime}}</td>
-          <td>{{recipe.restTime}}</td>
-          <td>{{recipe.totalTime}}</td>
-          <td>{{recipe.image}}</td>
+          <td>{{ recipe.id }}</td>
+          <td>{{ recipe.name }}</td>
+          <td>{{ recipe.preparationTime }}</td>
+          <td>{{ recipe.cookingTime }}</td>
+          <td>{{ recipe.restTime }}</td>
+          <td>{{ recipe.totalTime }}</td>
+          <td>{{ recipe.image }}</td>
           <td>
             <router-link :to="{name: 'myRecipe-update', params: {id: recipe.id}}">Modifier</router-link>
           </td>

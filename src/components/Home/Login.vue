@@ -6,8 +6,8 @@
 
     <Form @submit="onSubmit">
       <FieldContainer>
-        <Field v-model="email" type="email" name="email" id="email" placeholder="Email"/>
-        <Field v-model="password" type="password" name="password" id="password" placeholder="Mot de passe"/>
+        <Field id="email" v-model="email" name="email" placeholder="Email" type="email"/>
+        <Field id="password" v-model="password" name="password" placeholder="Mot de passe" type="password"/>
       </FieldContainer>
       <Submit type="submit" value="Se connecter"/>
     </Form>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {LoginContainer, Form, FieldContainer, Field, Submit, Title, TitleContainer} from "@/styles/Home/Form.style";
+import {Field, FieldContainer, Form, LoginContainer, Submit, Title, TitleContainer} from "@/styles/Home/Form.style";
 
 export default {
   name: "Login",

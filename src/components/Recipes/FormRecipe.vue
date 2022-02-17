@@ -2,12 +2,12 @@
   <FormContainer>
     <Form>
       <FieldContainer>
-        <Field type="text" v-model="rname" name="rname" id="name" tabindex="1" autofocus/>
-        <Field type="text" v-model="preparationTime" name="preparationTime" id="preparationTime" tabindex="2"/>
-        <Field type="text" v-model="cookingTime" name="cookingTime" id="cookingTime" tabindex="3"/>
-        <Field type="text" v-model="restTime" name="restTime" id="restTime" tabindex="4"/>
-        <Field type="text" v-model="difficulty" name="difficulty" id="difficulty" tabindex="5"/>
-        <Field type="text" v-model="image" name="image" id="image" tabindex="6"/>
+        <Field id="name" v-model="rname" autofocus name="rname" tabindex="1" type="text"/>
+        <Field id="preparationTime" v-model="preparationTime" name="preparationTime" tabindex="2" type="text"/>
+        <Field id="cookingTime" v-model="cookingTime" name="cookingTime" tabindex="3" type="text"/>
+        <Field id="restTime" v-model="restTime" name="restTime" tabindex="4" type="text"/>
+        <Field id="difficulty" v-model="difficulty" name="difficulty" tabindex="5" type="text"/>
+        <Field id="image" v-model="image" name="image" tabindex="6" type="text"/>
         <button type="submit">button</button>
       </FieldContainer>
     </Form>

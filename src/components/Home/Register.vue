@@ -6,11 +6,12 @@
 
     <Form @submit="onSubmit">
       <FieldContainer>
-        <Field v-model="username" type="text" name="username" id="username_register" placeholder="Nom utilisateur"/>
-        <Field v-model="email" type="email" name="email" id="email_register" placeholder="Email"/>
-        <Field v-model="password" type="password" name="password" id="password_register" placeholder="Mot de passe"/>
-        <Field v-model="passwordConfirm" type="password" name="password" id="passwordConfirm_register"
-               placeholder="Confirmer mot de passe"/>
+        <Field id="username_register" v-model="username" name="username" placeholder="Nom utilisateur" type="text"/>
+        <Field id="email_register" v-model="email" name="email" placeholder="Email" type="email"/>
+        <Field id="password_register" v-model="password" name="password" placeholder="Mot de passe" type="password"/>
+        <Field id="passwordConfirm_register" v-model="passwordConfirm" name="password"
+               placeholder="Confirmer mot de passe"
+               type="password"/>
       </FieldContainer>
       <Submit type="submit" value="Créer mon compte"/>
     </Form>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import {RegisterContainer, Form, FieldContainer, Field, Submit, Title, TitleContainer} from "@/styles/Home/Form.style";
+import {Field, FieldContainer, Form, RegisterContainer, Submit, Title, TitleContainer} from "@/styles/Home/Form.style";
 import axios from "axios";
 
 export default {

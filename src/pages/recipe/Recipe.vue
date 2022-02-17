@@ -40,15 +40,16 @@
 </template>
 
 <script>
-import {upperFirst, parseTime} from "@/lib/formatter";
+import {parseTime, upperFirst} from "@/lib/formatter";
 import {
-  RecipeImage,
-  Section,
+  Ingredient,
   IngredientSection,
-  SectionTitle,
-  TimesSection,
+  RecipeImage,
   RecipeTitle,
-  Ingredient, StepSection
+  Section,
+  SectionTitle,
+  StepSection,
+  TimesSection
 } from "@/styles/recipes/Recipe.style";
 
 export default {

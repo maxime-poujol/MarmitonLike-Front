@@ -16,7 +16,7 @@
 <script>
 
 import {mapState} from 'vuex'
-import {RecipesListContainer, RecipeContainer, RecipeName, TitleContainer} from "@/styles/recipes/Recipes.style";
+import {RecipeContainer, RecipeName, RecipesListContainer, TitleContainer} from "@/styles/recipes/Recipes.style";
 
 export default {
   name: "Recipes",

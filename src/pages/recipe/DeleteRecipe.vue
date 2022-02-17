@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>Votre a bien été supprimée</div>
-    <p>Redirection dans {{timer}}s</p>
+    <p>Redirection dans {{ timer }}s</p>
   </div>
 
 </template>
@@ -16,7 +16,7 @@ export default {
 
   },
   created() {
-    const interval = setInterval(this.decrementTimer,1000);
+    const interval = setInterval(this.decrementTimer, 1000);
 
     setTimeout(() => this.redirect(interval), 5000);
   },
