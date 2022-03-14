@@ -68,6 +68,14 @@ export default new Vuex.Store({
             }).then(r => {
                 context.commit("GET_USER_RECIPES", r.data);
             })
+        },
+        deleteRecipe(context,id) {
+            axios.delete(`${process.env.VUE_APP_IP}/recipes/${id}`,{
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.token}`
+                }
+            })
+
         }
     },
     modules: {}
