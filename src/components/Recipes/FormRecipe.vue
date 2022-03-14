@@ -34,8 +34,6 @@
               <button type="button" @click="createIngredientRow()">PLUS</button>
             </div>
           </FormGroup>
-
-
         </FormRow>
 
         <Submit type="submit" value="button"/>
@@ -47,7 +45,7 @@
 
 <script>
 import {Field, FieldContainer, Form, Submit} from "@/styles/Home/Form.style";
-import {FormContainer, FormRow, IngredientRow, FormGroup} from '@/styles/recipes/FormRecipe.style'
+import {FormContainer, FormGroup, FormRow, IngredientRow} from '@/styles/recipes/FormRecipe.style'
 
 export default {
   name: "FormRecipe",

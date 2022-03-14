@@ -15,7 +15,6 @@ export default {
     }
 
   },
-  props: ['id'],
   created() {
     this.$store.dispatch("deleteRecipe",this.$route.params.id);
     const interval = setInterval(this.decrementTimer, 1000);
