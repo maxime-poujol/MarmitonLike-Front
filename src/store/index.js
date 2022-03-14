@@ -75,7 +75,13 @@ export default new Vuex.Store({
                     Authorization: `Bearer ${sessionStorage.token}`
                 }
             })
-
+        },
+        createRecipe(context,data) {
+            axios.post(`${process.env.VUE_APP_IP}/recipes`,data,{
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.token}`
+                }
+            })
         }
     },
     modules: {}
