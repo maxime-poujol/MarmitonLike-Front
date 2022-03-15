@@ -27,7 +27,9 @@ export default new Vuex.Store({
             const index = state.recipes.findIndex((recipe) => {
                 return recipe.id === parseInt(id)
             });
-            return state.recipes[index];
+            const recipe = state.recipes[index]
+            recipe.ingredients = JSON.parse(recipe.ingredients);
+            return recipe;
         },
 
         getUserRecipe: (state) => (id) => {

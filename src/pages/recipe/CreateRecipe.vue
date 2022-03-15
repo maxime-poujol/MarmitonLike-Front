@@ -1,16 +1,16 @@
 <template>
   <div>
-    <FormRecipeCreate type="create"/>
+    <FormRecipe type="create"/>
   </div>
 </template>
 
 <script>
-import FormRecipeCreate from "@/components/Recipes/FormRecipeCreate";
+import FormRecipe from "@/components/Recipes/FormRecipe";
 
 export default {
   name: "createRecipe",
   components: {
-    FormRecipeCreate
+    FormRecipe
   }
 }
 </script>

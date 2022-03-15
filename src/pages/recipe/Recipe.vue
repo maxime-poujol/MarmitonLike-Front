@@ -11,7 +11,7 @@
     <IngredientSection>
       <Ingredient v-for="(ingredient,key) in recipe.ingredients" :key="'ing-' + key">
         <p>{{ upperFirst(ingredient.name) }}</p>
-        <p>{{ ingredient.quantite }}</p>
+        <p>{{ ingredient.qte }}</p>
       </Ingredient>
     </IngredientSection>
 
@@ -30,10 +30,7 @@
       <h2>Étapes:</h2>
     </SectionTitle>
     <StepSection>
-      <div v-for="(step,key) in recipe.steps" :key="'step-' + key">
-        <h3>Étape {{ key + 1 }}</h3>
-        <p>{{ step.description }}</p>
-      </div>
+        <p>{{ recipe.steps }}</p>
     </StepSection>
 
   </Section>

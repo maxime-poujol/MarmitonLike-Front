@@ -1,12 +1,8 @@
 <template>
-    <div>
-        <section>
-            <router-link :to="{name: 'myRecipe-create'}"> Create a recipe</router-link>
-        </section>
-        <section>
-            <table>
+        <Section>
+            <Tableau>
                 <thead>
-                <tr>
+                <Row>
                     <th>ID</th>
                     <th>name</th>
                     <th>preparationTime</th>
@@ -16,10 +12,10 @@
                     <th>Image</th>
                     <th></th>
                     <th></th>
-                </tr>
+                </Row>
                 </thead>
                 <tbody>
-                <tr v-for="(recipe,key) in userRecipes" :key="key">
+                <Row v-for="(recipe,key) in userRecipes" :key="key">
                     <td>{{ recipe.id }}</td>
                     <td>{{ recipe.name }}</td>
                     <td>{{ recipe.preparationTime }}</td>
@@ -28,23 +24,37 @@
                     <td>{{ recipe.totalTime }}</td>
                     <td>{{ recipe.image }}</td>
                     <td>
-                        <router-link :to="{name: 'myRecipe-update', params: {id: recipe.id}}">Modifier</router-link>
+                       <Button :color="color.orange"><router-link :to="{name: 'myRecipe-update', params: {id: recipe.id}}">Modifier</router-link></Button>
                     </td>
                     <td>
-                        <button @click="onDelete(recipe)">Supprimer</button>
+                        <Button :color="color.red" @click="onDelete(recipe)">Supprimer</Button>
                     </td>
-                </tr>
+                </Row>
                 </tbody>
-            </table>
-        </section>
-    </div>
+            </Tableau>
+            <Button :color="color.blue"><router-link :to="{name: 'myRecipe-create'}"> Créer une recette</router-link></Button>
+          <p>ATTENTION: Si create ou update, rafraichir pour voir les changements dans la liste mes recettes</p>
+        </Section>
 </template>
 
 <script>
 import {mapState} from "vuex";
+import {Button, Row, Tableau, Section} from "@/styles/recipes/MyRecipes.style";
+import color from "@/styles/theme";
 
 export default {
     name: "MyRecipe",
+  data(){
+     return {
+       color
+     }
+  },
+  components: {
+    Button,
+    Row,
+    Tableau,
+    Section
+  },
     computed: {
         ...mapState(['userRecipes'])
     },

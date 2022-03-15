@@ -1,17 +1,17 @@
 <template>
   <div>
-    <FormRecipeUpdate type="update"/>
+    <FormRecipe type="update"/>
   </div>
 </template>
 
 <script>
 
-import FormRecipeUpdate from "@/components/Recipes/FormRecipeUpdate";
+import FormRecipe from "@/components/Recipes/FormRecipe";
 
 export default {
   name: "UpdateRecipe",
   components: {
-    FormRecipeUpdate
+    FormRecipe
   }
 
 }

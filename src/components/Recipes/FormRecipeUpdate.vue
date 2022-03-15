@@ -115,7 +115,6 @@ export default {
                 id: this.$route.params.id
             });
 
-            this.$store.dispatch("getUserRecipes");
             this.$router.push("/myrecipe");
 
         }
