@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header v-if="$route.fullPath !== '/'"/>
     <Main/>
-    <Footer/>
+    <Footer v-if="$route.fullPath !== '/'"/>
   </div>
 </template>
 
@@ -23,8 +23,25 @@ export default {
 </script>
 
 <style>
-  html {
-    background: #ddd;
-  }
+
+a {
+  text-decoration: none;
+  color: #000
+}
+
+@font-face {
+  font-family: "genshin";
+  src: url("assets/ja-jp.ttf")
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: genshin, serif;
+}
+
+main {
+  min-height: calc(100vh - 120px);
+}
 </style>
 
