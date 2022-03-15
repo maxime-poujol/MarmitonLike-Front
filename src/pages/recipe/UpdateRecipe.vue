@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FormRecipe type="update"/>
+    <FormRecipeUpdate type="update"/>
   </div>
 </template>
 

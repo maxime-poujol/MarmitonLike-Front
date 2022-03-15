@@ -82,7 +82,14 @@ export default new Vuex.Store({
                     Authorization: `Bearer ${sessionStorage.token}`
                 }
             })
-        }
+        },
+        updateRecipe(context,payload) {
+            axios.put(`${process.env.VUE_APP_IP}/recipes/${payload.id}`,payload.data,{
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.token}`
+                }
+            })
+        },
     },
     modules: {}
 })

@@ -2,6 +2,7 @@
     <FormContainer>
         <Form method="post" @submit="onSubmit($event)">
             <FieldContainer>
+                <input type="hidden" name="bddId" :value="bddId">
                 <FormRow>
                     <label for="name">Name</label>
                     <Field id="name" v-model="name" autofocus name="name" tabindex="1" type="text"/>
@@ -63,19 +64,6 @@ import {FormContainer, FormGroup, FormRow, IngredientRow} from '@/styles/recipes
 
 export default {
     name: "FormRecipe",
-    props: ['type'],
-    data() {
-        return {
-            name: "",
-            preparationTime: 0,
-            cookingTime: 0,
-            restTime: 0,
-            difficulty: "",
-            image: "",
-            ingredients: [],
-            steps: ""
-        }
-    },
     components: {
         Form,
         FieldContainer,
@@ -86,22 +74,29 @@ export default {
         IngredientRow,
         FormGroup
     },
-    mounted() {
-        if (this.type === "create") {
-            this.createIngredientRow()
-        } else if (this.type === "update") {
-            this.$store.dispatch("getRecipe", this.$route.params.id).then(r => {
-                this.name = r.name;
-                this.preparationTime = r.preparationTime;
-                this.cookingTime = r.cookingTime;
-                this.restTime = r.restTime;
-                this.difficulty = r.difficulty;
-                this.image = r.image;
-                this.ingredients = JSON.parse(r.ingredients);
-                this.steps = r.steps;
-            });
+    data() {
+        return {
+            name: "",
+            preparationTime: 0,
+            cookingTime: 0,
+            restTime: 0,
+            difficulty: "",
+            image: "",
+            ingredients: [],
+            steps: "",
+            bddId: ""
         }
-
+    },
+    mounted() {
+        const recipe = this.$store.getters.getUserRecipe(this.$route.params.id);
+        this.name = recipe.name;
+        this.preparationTime = recipe.preparationTime;
+        this.cookingTime = recipe.cookingTime;
+        this.restTime = recipe.restTime;
+        this.difficulty = recipe.difficulty;
+        this.ingredients = JSON.parse(recipe.ingredients);
+        this.steps = recipe.steps;
+        this.bddId = recipe._id;
     },
     methods: {
         createIngredientRow() {
@@ -115,10 +110,13 @@ export default {
         },
         onSubmit(event) {
             event.preventDefault();
-            if (this.type === "create") {
-                this.$store.dispatch("createRecipe", this.$data);
-            }
+            this.$store.dispatch("updateRecipe", {
+                data: this.$data,
+                id: this.$route.params.id
+            });
 
+            this.$store.dispatch("getUserRecipes");
+            this.$router.push("/myrecipe");
 
         }
     }
