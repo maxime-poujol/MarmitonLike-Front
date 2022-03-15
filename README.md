@@ -1,24 +1,9 @@
-# frontwithvue
+#Comment installer le projet
 
-## Project setup
-```
-npm install
-```
+1- Cloner le projet
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+2- Éxécuter la commande <b>npm install</b> à la racine du projet
 
-### Compiles and minifies for production
-```
-npm run build
-```
+3- Éxécuter <b>npm run serve</b>
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+4 - Se rendre sur le site <a> https://marmitonlike.netlify.app </a> puis créer un compte utilisateur
