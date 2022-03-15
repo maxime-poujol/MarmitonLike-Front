@@ -28,7 +28,14 @@ export default new Vuex.Store({
                 return recipe.id === parseInt(id)
             });
             return state.recipes[index];
-        }
+        },
+
+        getUserRecipe: (state) => (id) => {
+            const index = state.userRecipes.findIndex((recipe) => {
+                return recipe.id === parseInt(id)
+            });
+            return state.userRecipes[index];
+        },
     },
     actions: {
         getRecipes(context) {
@@ -39,13 +46,6 @@ export default new Vuex.Store({
             }).then(r => {
                 context.commit("GET_RECIPES", r.data);
             })
-
-        },
-        getRecipe(context, id) {
-            const index = context.state.recipes.findIndex((recipe) => {
-                return recipe.id === parseInt(id)
-            });
-            return context.state.recipes[index];
 
         },
         login(context, body) {
@@ -77,7 +77,7 @@ export default new Vuex.Store({
             })
         },
         createRecipe(context,data) {
-            axios.post(`${process.env.VUE_APP_IP}/recipes`,data,{
+            axios.post(`${process.env.VUE_APP_IP}/recipes/`,data,{
                 headers: {
                     Authorization: `Bearer ${sessionStorage.token}`
                 }

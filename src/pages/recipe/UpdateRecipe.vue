@@ -6,17 +6,12 @@
 
 <script>
 
-import FormRecipe from "@/components/Recipes/FormRecipe";
+import FormRecipeUpdate from "@/components/Recipes/FormRecipeUpdate";
 
 export default {
   name: "UpdateRecipe",
   components: {
-    FormRecipe
-  },
-  computed: {
-    recipe() {
-      return this.$store.getters.getRecipe(this.$route.params.id);
-    }
+    FormRecipeUpdate
   }
 
 }
