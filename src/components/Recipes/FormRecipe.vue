@@ -1,6 +1,7 @@
 <template>
   <FormContainer>
     <Form method="post" @submit="onSubmit($event)">
+      <input v-if="type === 'update'" type="hidden" name="bddId" :value="bddId">
       <FieldContainer>
         <FormRow>
           <label for="name">Name</label>
@@ -8,7 +9,8 @@
         </FormRow>
         <FormRow>
           <label for="preparationTime">Preparation (min)</label>
-          <Field id="preparationTime" v-model="preparationTime" name="preparationTime" tabindex="2" type="number"/>
+          <Field id="preparationTime" v-model="preparationTime" name="preparationTime" tabindex="2"
+                 type="number"/>
         </FormRow>
         <FormRow>
           <label for="cookingTime">Cooking (min)</label>
@@ -29,21 +31,24 @@
         <FormRow>
           <label>Ingredients</label>
           <FormGroup>
-            <IngredientRow id="ingredients-row">
-              <div v-for="(ingredient,key) in ingredients" :key="key">
+            <IngredientRow id="ingredients-row" v-for="(ingredient,key) in ingredients" :key="key">
                 <input type="text" v-model="ingredient.name">
                 <input type="text" v-model="ingredient.qte">
-                <button v-if="ingredients.length !== 1" type="button" @click="suppressIngredient(key)">X</button>
-              </div>
+                <Button color="#ff0000" v-if="ingredients.length !== 1" type="button" @click="suppressIngredient(key)">
+                  X
+                </Button>
             </IngredientRow>
-            <div>
-              <button type="button" @click="createIngredientRow()">PLUS</button>
-            </div>
+            <PlusContainer>
+              <Button color="#00aaff" type="button" @click="createIngredientRow()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+              </svg>
+              </Button>
+            </PlusContainer>
           </FormGroup>
         </FormRow>
         <FormRow>
           <label>Steps</label>
-          <textarea v-model="steps"></textarea>
+          <StepArea rows="5" cols="30" v-model="steps"></StepArea>
         </FormRow>
 
         <Submit type="submit" value="button"/>
@@ -56,10 +61,10 @@
 
 <script>
 import {Field, FieldContainer, Form, Submit} from "@/styles/Home/Form.style";
-import {FormContainer, FormGroup, FormRow, IngredientRow} from '@/styles/recipes/FormRecipe.style'
+import {FormContainer, FormGroup, FormRow, IngredientRow, Button, StepArea, PlusContainer} from '@/styles/recipes/FormRecipe.style'
 
 export default {
-  name: "FormRecipe",
+  name: "FormRecipeCreate",
   props: ['type'],
   data() {
     return {
@@ -70,10 +75,12 @@ export default {
       difficulty: "",
       image: "",
       ingredients: [],
-      steps: ""
+      steps: "",
+      bddId: "",
     }
   },
   components: {
+    Button,
     Form,
     FieldContainer,
     Field,
@@ -81,41 +88,49 @@ export default {
     FormRow,
     Submit,
     IngredientRow,
-    FormGroup
+    FormGroup,
+    StepArea,
+    PlusContainer
   },
   mounted() {
     if (this.type === "create") {
-      this.createIngredientRow()
+      this.createIngredientRow();
     } else if (this.type === "update") {
-      this.$store.dispatch("getRecipe",this.$route.params.id).then(r => {
-        this.name = r.name;
-        this.preparationTime = r.preparationTime;
-        this.cookingTime = r.cookingTime;
-        this.restTime = r.restTime;
-        this.difficulty = r.difficulty;
-        this.image = r.image;
-        this.ingredients = JSON.parse(r.ingredients);
-        this.steps = r.steps;
-      });
+      const recipe = this.$store.getters.getUserRecipe(this.$route.params.id);
+      this.name = recipe.name;
+      this.preparationTime = recipe.preparationTime;
+      this.cookingTime = recipe.cookingTime;
+      this.restTime = recipe.restTime;
+      this.difficulty = recipe.difficulty;
+      this.ingredients = JSON.parse(recipe.ingredients);
+      this.steps = recipe.steps;
+      this.bddId = recipe._id;
     }
 
   },
   methods: {
     createIngredientRow() {
       this.ingredients.push({
-        name:"",
+        name: "",
         qte: ""
       })
     },
     suppressIngredient(index) {
-      this.ingredients.splice(index,1);
+      this.ingredients.splice(index, 1);
     },
     onSubmit(event) {
       event.preventDefault();
+
       if (this.type === "create") {
-        this.$store.dispatch("createRecipe",this.$data);
+        this.$store.dispatch("createRecipe", this.$data);
+      } else if (this.type === "update") {
+        this.$store.dispatch("updateRecipe", {
+          data: this.$data,
+          id: this.$route.params.id
+        });
       }
 
+      this.$router.push("/myrecipe");
 
     }
   }

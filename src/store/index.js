@@ -27,8 +27,17 @@ export default new Vuex.Store({
             const index = state.recipes.findIndex((recipe) => {
                 return recipe.id === parseInt(id)
             });
-            return state.recipes[index];
-        }
+            const recipe = state.recipes[index]
+            recipe.ingredients = JSON.parse(recipe.ingredients);
+            return recipe;
+        },
+
+        getUserRecipe: (state) => (id) => {
+            const index = state.userRecipes.findIndex((recipe) => {
+                return recipe.id === parseInt(id)
+            });
+            return state.userRecipes[index];
+        },
     },
     actions: {
         getRecipes(context) {
@@ -39,13 +48,6 @@ export default new Vuex.Store({
             }).then(r => {
                 context.commit("GET_RECIPES", r.data);
             })
-
-        },
-        getRecipe(context, id) {
-            const index = context.state.recipes.findIndex((recipe) => {
-                return recipe.id === parseInt(id)
-            });
-            return context.state.recipes[index];
 
         },
         login(context, body) {
@@ -77,12 +79,19 @@ export default new Vuex.Store({
             })
         },
         createRecipe(context,data) {
-            axios.post(`${process.env.VUE_APP_IP}/recipes`,data,{
+            axios.post(`${process.env.VUE_APP_IP}/recipes/`,data,{
                 headers: {
                     Authorization: `Bearer ${sessionStorage.token}`
                 }
             })
-        }
+        },
+        updateRecipe(context,payload) {
+            axios.put(`${process.env.VUE_APP_IP}/recipes/${payload.id}`,payload.data,{
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.token}`
+                }
+            })
+        },
     },
     modules: {}
 })

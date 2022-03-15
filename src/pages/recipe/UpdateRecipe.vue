@@ -12,11 +12,6 @@ export default {
   name: "UpdateRecipe",
   components: {
     FormRecipe
-  },
-  computed: {
-    recipe() {
-      return this.$store.getters.getRecipe(this.$route.params.id);
-    }
   }
 
 }
