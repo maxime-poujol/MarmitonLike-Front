@@ -98,9 +98,9 @@ export default {
     } else if (this.type === "update") {
       const recipe = this.$store.getters.getUserRecipe(this.$route.params.id);
       this.name = recipe.name;
-      this.preparationTime = recipe.preparationTime;
-      this.cookingTime = recipe.cookingTime;
-      this.restTime = recipe.restTime;
+      this.preparationTime = parseInt(recipe.preparationTime);
+      this.cookingTime = parseInt(recipe.cookingTime);
+      this.restTime = parseInt(recipe.restTime);
       this.difficulty = recipe.difficulty;
       this.ingredients = JSON.parse(recipe.ingredients);
       this.steps = recipe.steps;

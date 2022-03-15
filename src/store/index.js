@@ -79,6 +79,9 @@ export default new Vuex.Store({
             })
         },
         createRecipe(context,data) {
+            data.cookingTime = parseInt(data.cookingTime);
+            data.preparationTime = parseInt(data.preparationTime);
+            data.restTime = parseInt(data.restTime);
             axios.post(`${process.env.VUE_APP_IP}/recipes/`,data,{
                 headers: {
                     Authorization: `Bearer ${sessionStorage.token}`
