@@ -1,8 +1,8 @@
-#Comment accéder au projet en ligne 
+# Comment accéder au projet en ligne 
 
 1- Rendez-vous sur le lien suivant : <a> https://marmitonlike.netlify.app </a>
 
-#Comment installer le projet en local
+# Comment installer le projet en local
 
 1- Cloner le projet
 
